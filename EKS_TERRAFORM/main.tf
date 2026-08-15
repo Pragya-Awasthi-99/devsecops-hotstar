@@ -49,7 +49,7 @@ resource "aws_eks_cluster" "example" {
 }
 
 resource "aws_iam_role" "example1" {
-  name = "eks-node-group-cloud"
+  name = "eks-node-group-cloud1"
 
   assume_role_policy = jsonencode({
     Statement = [{
@@ -90,7 +90,7 @@ resource "aws_eks_node_group" "example" {
     max_size     = 2
     min_size     = 1
   }
-  instance_types = ["t3.micro"]
+  instance_types = ["t3.small"]
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
   # Otherwise, EKS will not be able to properly delete EC2 Instances and Elastic Network Interfaces.
